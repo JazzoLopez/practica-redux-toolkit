@@ -6,17 +6,17 @@ import { Link } from "react-router-dom"
 function TaskList() {
   const dispatch = useDispatch()
   const stateTask = useSelector(state => state.task)
+
   const handleDelete = (id) => {
     dispatch(deleteTask(id))
   }
 
-
   return (
     <div>
-      <div>
-        <h1>Lista de tareas</h1>
+      <header>
+        <h1>Tareas: {stateTask.length}</h1>
         <Link to={'/nueva-tarea'}>Nueva tarea</Link>
-      </div>
+      </header>
       <div>{
         stateTask.map(task => {
           return (
